@@ -6,3 +6,4 @@ export const app = express();
 app.use(helmet());
 app.use(json());
 app.use('/opportunities', oportunityRouter);
+app.use('/opportunities/:id/applications', applicationRouter);
