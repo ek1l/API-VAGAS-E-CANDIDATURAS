@@ -2,6 +2,7 @@ import { prisma } from '../database/prisma';
 import {
   TOpportunity,
   TOpportunityCreate,
+  TOpportunityUpdate,
 } from '../schemas/opportunity.schema';
 
 export class OportunityService {
@@ -22,7 +23,18 @@ export class OportunityService {
     return data as TOpportunity;
   }
 
-  async update() {}
+  async update(id: number, body: TOpportunityUpdate): Promise<TOpportunity> {
+    const data = await prisma.opportunity.update({
+      where: {
+        id,
+      },
+      data: body,
+    });
+    return data;
+  }
 
-  async delete() {}
+  async delete(id: number): Promise<void> {
+    await prisma.opportunity.delete({ where: { id } });
+    return;
+  }
 }

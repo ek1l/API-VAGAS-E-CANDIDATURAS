@@ -9,7 +9,7 @@ const oportunityControllers = new OportunityController();
 oportunityRouter.post('/', oportunityControllers.create);
 oportunityRouter.get('/', oportunityControllers.findMany);
 oportunityRouter.get('/:id', oportunityControllers.findOne);
-oportunityRouter.put('/:id', oportunityControllers.update);
+oportunityRouter.patch('/:id', oportunityControllers.update);
 oportunityRouter.delete('/:id', oportunityControllers.delete);
 
 oportunityRouter.use('/:id/applications', applicationRouter);
