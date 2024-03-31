@@ -11,14 +11,12 @@ export class OportunityController {
   async findMany(req: Request, res: Response) {
     const opportunityServices = new OportunityService();
     const response = await opportunityServices.findMany();
-    console.log(response);
     return res.status(200).json(response);
   }
 
-  async findOne(req: Request, res: Response) {
-    const { id } = req.params;
+  findOne(req: Request, res: Response) {
     const opportunityServices = new OportunityService();
-    const response = await opportunityServices.findOne(Number(id));
+    const response = opportunityServices.findOne(res.locals.opportunity);
     return res.status(200).json(response);
   }
 

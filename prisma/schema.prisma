@@ -15,9 +15,10 @@ model Opportunity {
 }
 
 model Application {
-  id           Int         @id @default(autoincrement())
-  email        String
-  linkedin     String
-  oportunityId Int
-  oportunity   Opportunity @relation(fields: [oportunityId], references: [id])
+  id            Int         @id @default(autoincrement())
+  email         String
+  linkedin      String
+  name          String
+  opportunityId Int
+  opportunity   Opportunity @relation(fields: [opportunityId], references: [id])
 }
